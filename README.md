@@ -10,7 +10,7 @@ https://drive.google.com/drive/u/1/folders/1rNZOSgXUMRIO5JUhLPWkwlid3cD-irot
 
 To invoke model run : 
 
-python --input "<path to image>" model_backend/main.py
+python --input "<path to image>" backend/model//main.py
 
 // Note Image Input should be 1024 x 1024
 // TODO : Random input shapes with input dimensions given as command line arguments
