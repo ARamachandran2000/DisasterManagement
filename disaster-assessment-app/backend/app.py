@@ -1,6 +1,6 @@
 from flask import Flask, json, jsonify, request
 from flask_cors import CORS
-from predict import pred
+from predict_earthquake import pred
 # from dbms.dict_db.model import Model
 
 app = Flask(__name__)

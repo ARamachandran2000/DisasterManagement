@@ -1,4 +1,4 @@
-from helper import *
+from helper_earthquake import *
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 import time
@@ -241,7 +241,7 @@ def pred(image_path):
         sess.run(tf.global_variables_initializer())
 
         saver = tf.train.Saver()
-        saver.restore(sess, tf.train.latest_checkpoint('saved_models/'))
+        saver.restore(sess, tf.train.latest_checkpoint('saved_models/earthquake/'))
         graph = tf.get_default_graph()
 
         ### Testing ###
@@ -275,6 +275,14 @@ def pred(image_path):
         if not os.path.exists('outputs'):
             os.mkdir('outputs')
         cv2.imwrite('outputs/{}'.format(test_img_path.split('/')[-1]), img)
+
+        image = cv2.imread(test_img_path)
+        alpha = 0.6
+        dst = cv2.addWeighted(image, alpha , img, 1-alpha, 0)
+        cv2.imshow('final', dst)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        cv2.imwrite('outputs/{}'.format(test_img_path.split('/')[-1]), dst)
     
     if os.path.exists('.temp'):
         shutil.rmtree('.temp')
