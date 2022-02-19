@@ -1,5 +1,6 @@
 from flask import Flask, json, jsonify, request
 from flask_cors import CORS
+from predict import pred
 # from dbms.dict_db.model import Model
 
 app = Flask(__name__)
@@ -12,6 +13,7 @@ def test_image():
     print("Working!")
     f = request.files['myFile']
     f.save(f.filename)
+    pred(f.filename)
     return {"YAY":"YAYY"}, 200
 if __name__ == "__main__":
     app.run(host = 'localhost',port=5000, debug=True)

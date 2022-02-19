@@ -1,2 +1,3 @@
-
-/frontend/disaster-assessment-app/node_modules
+/disaster-assessment-app/backend/data
+/disaster-assessment-app/backend/saved_models
+/disaster-assessment-app/node_modules
