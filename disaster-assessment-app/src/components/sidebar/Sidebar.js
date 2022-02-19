@@ -34,7 +34,14 @@ class App extends Component {
     
       // Details of the uploaded file
       console.log(this.state.selectedFile);
-      axios.post("http://localhost:5000/test", formData);
+      axios.post("http://localhost:5000/test", formData)
+      .then(response => {
+        console.log(response)
+        // response --> image
+      } )
+      .catch(error => {
+        console.log(error)
+      })
     };
     
     fileData = () => {
@@ -59,6 +66,8 @@ class App extends Component {
     render() {
     
       return (
+
+        
         <div>
             <div className="sidebar__title" style={{padding: '20px', paddingTop: '130px'}}>
                   <div className="sidebar__image">
@@ -73,6 +82,7 @@ class App extends Component {
                </div> 
           
         </div>
+        
       );
     }
     
