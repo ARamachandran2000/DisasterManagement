@@ -6,6 +6,8 @@ import green from "../../assets/green.png"
 import { useState,useEffect } from "react";
 import Sidebar from "../sidebar/Sidebar";
 import { e_array } from "../sidebar/Sidebar";
+import { BrowserRouter as Router, Route, Link, Switch } 
+       from "react-router-dom";
 
 
 import Chart from "../charts/Chart";
@@ -32,7 +34,7 @@ const Main=(props)=>{
                             </div>
                         </div>
                         <div className="charts__right__cards">
-                        <img src={props.image==null?hello:props.image} style={{width:'480px', height:'480px', padding: '20px'}} id="img"></img>
+                        <img src={props.image==null?hello:props.image} style={{width:'350px', height:'350px', padding: '20px'}} id="img"></img>
                         </div>
                         
                         <div className="charts__right__colors">
@@ -54,13 +56,11 @@ const Main=(props)=>{
                         </div>
                     </div>
                     <br/>
-                    <div className="card" >
-                        <i className="fa fa-users fa-2x text-lightblue"></i>
-                        <div className="card_inner">
-                            <p className="text-primary-p">Earthquake Magnitude</p>
-                            <span className="font-bold text-title">3.3</span>
-                        </div>
-                    </div>
+                    
+                    <form action="http://localhost:3005/categories/earthquake%20damage" target="_blank">
+                        <input type="submit" value="Check Live Updates" />
+                    </form>
+                    
                 </div>
                 </div>
             </div>

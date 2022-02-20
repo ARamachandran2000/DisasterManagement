@@ -2,6 +2,7 @@
 import axios from 'axios';
  
 import React,{Component} from 'react';
+import "./Sidebar.css";
 
 class App extends Component {
 
@@ -76,7 +77,7 @@ class App extends Component {
             
           {this.fileData()}
           </div>
-                <input type="file" onChange={this.onFileChange} style={{paddingLeft: '20px', alignContent: "center", justifyContent: "center", display:"flex"}} />
+                {/* <input type="file" onChange={this.onFileChange} style={{paddingLeft: '20px', alignContent: "center", justifyContent: "center", display:"flex"}} />
                 <ul>
                   <li>
                     <label>
@@ -100,8 +101,19 @@ class App extends Component {
                       <span>Fire Detection</span>
                     </label>
                   </li>
-                </ul>
-
+                </ul> */}
+<div class="wrapper">
+ <input type="radio" name="select" id="option-1" value="earthquake" checked={this.state.model === "earthquake"} onChange={this.onRadioChange} checked/>
+ <input type="radio" name="select" id="option-2" value="fire" checked={this.state.model === "fire"} onChange={this.onRadioChange}/>
+   <label for="option-1" class="option option-1">
+     <div class="dot"></div>
+      <span>Earthquake</span>
+      </label>
+   <label for="option-2" class="option option-2">
+     <div class="dot"></div>
+      <span>Forest Fire</span>
+   </label>
+</div>
 
                 <div className="App" style={{paddingLeft: '20px', alignContent: "center", justifyContent: "center", display:"flex"}}>
                       <button type="button" id = "assess" onClick={this.onFileUpload} style={{backgroundColor:"#fff000", padding: '10px', borderRadius: '12px', cursor: 'pointer', fontWeight: 'bold', padding: '10px 15px', textAlign: 'center', transition: '100ms', maxWidth:'180px', boxSizing:'border-box', border: '0', fontSize:'16px', userSelect:'none', WebkitUserSelect:'none', touchAction:'manipulation',marginTop:'15px'}}> ASSESS </button>
@@ -115,7 +127,7 @@ class App extends Component {
   }
  
   const ImageThumb = ({ image }) => {
-    return <img src={URL.createObjectURL(image)} alt={image.name} style={{width:'480px', height:'480px', padding: '20px'}} />;
+    return <img src={URL.createObjectURL(image)} alt={image.name} style={{width:'350px', height:'350px', padding: '20px'}} />;
 };
   export default App;
 
