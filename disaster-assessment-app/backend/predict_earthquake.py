@@ -268,9 +268,9 @@ def pred(image_path):
 
             row+=1
 
-        cv2.imshow('final', img)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.imshow('final', img)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
 
         if not os.path.exists('outputs'):
             os.mkdir('outputs')
@@ -279,9 +279,9 @@ def pred(image_path):
         image = cv2.imread(test_img_path)
         alpha = 0.6
         dst = cv2.addWeighted(image, alpha , img, 1-alpha, 0)
-        cv2.imshow('final', dst)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.imshow('final', dst)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
         cv2.imwrite('outputs/{}'.format(test_img_path.split('/')[-1]), dst)
     
     if os.path.exists('.temp'):
