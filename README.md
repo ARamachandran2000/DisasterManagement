@@ -75,8 +75,12 @@ The model is trained on the Xview2 building damage assessment dataset.
 # Network
 -------
 
+For EarthQuakes : 
 For the given task we propose to go with the traditional U-Net architecture composed with an MRA (Multi-Resolution Analysis ) framework. The U-Net architecture is a simple encoder-decoder fully convolutional pipeline consisting of contracting (encoder) and expanding/extracting (decoder) paths. 
 The MRA framework is interspersed into the U-Net Architecture in such a way that it pre-processes the inputs to the network at several stages to increase the contextual overview of the network as the same data on multiple scales is available for feature extraction and learning. 
+
+For Forest-Fire : 
+We used a traditional VGG Architecture organised in a U-Net style Encoder Decoder.
 
 
 ## Why MRA? 
@@ -87,9 +91,14 @@ The intuition behind using multi-resolution analysis is that images contain feat
 
 ## Network Architecture
 -------
-
+MRA Network : 
 <p align="center">
   <img src="assets/network_architecture.png" width="550" height="750" title="network">
+</p>
+
+VGG Model :  
+<p align="center">
+  <img src="assets/vgg_image.png" width="550" height="750" title="network">
 </p>
 
 ## Loss Function
