@@ -275,7 +275,7 @@ html,body{
 .wrapper{
   display: inline-flex;
   background: #fff;
-  height: 100px;
+  height: 50px;
   width: 350px;
   align-items: center;
   justify-content: space-evenly;

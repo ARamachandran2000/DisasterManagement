@@ -1,5 +1,5 @@
 import "./Main.css";
-import hello from "../../assets/ic_launcher.png"
+import hello from "../../assets/loading_1.gif"
 import blue from "../../assets/blue.png"
 import red from "../../assets/red.png"
 import green from "../../assets/green.png"
@@ -19,7 +19,7 @@ const Main=(props)=>{
                 <div className="main__title">
                     
                     <div className="main__greeting">
-                        <h1 style={{fontSize: '34px'}}>Disaster Assessment</h1>
+                        <h1 style={{fontSize: '34px', marginLeft:'115px'}}>Disaster Assessment</h1>
                         
                     </div>
                 </div>
@@ -30,11 +30,11 @@ const Main=(props)=>{
                     <div className="charts__right">
                         <div className="charts__left__title">
                             <div>
-                                <h1 style={{fontSize: '26px'}}>Output Image</h1>
+                                <h1 style={{fontSize: '26px', marginLeft:'150px'}}>Output Image</h1>
                             </div>
                         </div>
                         <div className="charts__right__cards">
-                        <img src={props.image==null?hello:props.image} style={{width:'350px', height:'350px', padding: '20px'}} id="img"></img>
+                        <img src={props.image==null?hello:props.image} style={{width:'350px', height:'350px', padding: '40px', paddingLeft:'55px'}} id="img"></img>
                         </div>
                         
                         <div className="charts__right__colors">
@@ -58,7 +58,7 @@ const Main=(props)=>{
                     <br/>
                     
                     <form action="http://localhost:3005/categories/earthquake%20damage" target="_blank">
-                        <input type="submit" value="Check Live Updates" />
+                        <input type="submit" value="Check Live Updates" style={{marginLeft:'150px', backgroundColor:'lightblue', padding: '10px', borderRadius: '12px', cursor: 'pointer', fontWeight: 'bold', padding: '10px 15px', textAlign: 'center', transition: '100ms', maxWidth:'180px', boxSizing:'border-box', border: '0', fontSize:'16px', userSelect:'none', WebkitUserSelect:'none', touchAction:'manipulation',marginTop:'15px'}}/>
                     </form>
                     
                 </div>
