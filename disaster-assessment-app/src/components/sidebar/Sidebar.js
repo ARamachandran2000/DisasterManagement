@@ -115,7 +115,7 @@ class App extends Component {
   }
  
   const ImageThumb = ({ image }) => {
-    return <img src={URL.createObjectURL(image)} alt={image.name} style={{width:'480px', height:'320px', padding: '20px'}} />;
+    return <img src={URL.createObjectURL(image)} alt={image.name} style={{width:'480px', height:'480px', padding: '20px'}} />;
 };
   export default App;
 

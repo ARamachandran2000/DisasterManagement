@@ -223,9 +223,11 @@ def pred(image_path):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+        filename = test_img_path.split('/')[-1]
+        exact_name, extension = filename.split('.')
         if not os.path.exists('outputs'):
             os.mkdir('outputs')
-        cv2.imwrite('outputs/{}'.format(test_img_path.split('/')[-1]), img)
+        cv2.imwrite('outputs/{}'.format(exact_name+'_mask.'+extension), img)
 
         image = cv2.imread(test_img_path)
         alpha = 0.6

@@ -32,7 +32,7 @@ const Main=(props)=>{
                             </div>
                         </div>
                         <div className="charts__right__cards">
-                        <img src={props.image==null?hello:props.image} style={{width:'480px', height:'320px', padding: '20px'}} id="img"></img>
+                        <img src={props.image==null?hello:props.image} style={{width:'480px', height:'480px', padding: '20px'}} id="img"></img>
                         </div>
                         
                         <div className="charts__right__colors">

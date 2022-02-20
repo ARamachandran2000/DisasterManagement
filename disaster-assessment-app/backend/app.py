@@ -6,7 +6,8 @@ import flask
 import numpy as np
 import cv2
 
-from predict_earthquake import pred
+from predict_earthquake import pred as pred_earthquake
+from predict_forest_fire import pred as pred_forest_fire
 
 app = Flask(__name__)
 CORS(app)   
@@ -15,7 +16,7 @@ CORS(app)
 def test_image():
 
     f = request.files['myFile']
-    # f.save(f.filename)
+    f.save(f.filename)
     
     # Resize accd to model requirements
     image = cv2.imread(f.filename)
@@ -28,15 +29,19 @@ def test_image():
 
     if model == 'fire':
         # Call Fire detection model's predict!
-        pass
+        pred_forest_fire(f.filename)
     else:
-        pred(f.filename)  #earthquake
+        pred_earthquake(f.filename)  #earthquake
 
     # % Damage Calculation
-    
-    image = cv2.imread('outputs/'+f.filename)
+    filename = f.filename.split('/')[-1]
+    exact_name, extension = filename.split('.')
+
+    image = cv2.imread('outputs/'+exact_name+'_mask.'+extension)
     mask = cv2.inRange(image, (0, 0, 50), (50, 50,255))
     number_of_white_pix = np.sum(mask == 255)
+    mask = cv2.inRange(image, (50, 0, 0), (255, 50,50))
+    number_of_white_pix += np.sum(mask == 255)
     area_damage = round((number_of_white_pix/mask.size)*100,2)
     print("Area Damaged: ", area_damage, ' %')
    
