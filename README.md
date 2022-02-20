@@ -98,7 +98,7 @@ MRA Network :
 
 VGG Model :  
 <p align="center">
-  <img src="assets/vgg_image.png" width="550" height="750" title="network">
+  <img src="assets/vgg_image.png" width="750" height="500" title="network">
 </p>
 
 ## Loss Function
