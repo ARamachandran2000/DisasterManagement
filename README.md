@@ -27,50 +27,18 @@ An application that can perform online disaster assessment
 [![Issues][issues-shield]][issues-url]
 
 
-
-
-## Project Organization
--------
-    ├── README.md       
-    │   
-    ├── disaster-assessment-app                
-    |
-    ├── backend         <- Deep Learning Model      
-    │   ├── helper_earthquake.py
-    │   ├── helper_forest_fire.py
-    │   └── MRA_Model.py
-    │   └── predict_earthquake.py
-    |   └── predict_forest_fire.py
-    │   ├── checkpoint <- Saved Models
-    │   ├── model_latest.ckpt.data-00000-of-00001
-    │   ├── model_latest.ckpt.index
-    │   └── model_latest.ckpt.meta
-    ├── src
-    │   └── metrics.py
-    │   ├── Augment_Data.py     <- Main data augmentation file
-    │   ├── cap_aug.py          <- File for cut paste augmentation
-    │
-    │                              
-    ├── public                 
-    └── data
-        ├── vgg
-        │   ├── variables
-        │   ├── make_dataset.py  <- Script to generate data
-                └── ....
-        
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 -------
 
 The purpose of this hack is to aid in the real-time and rapid disaster identification and alleviation by promptly identifying the degree of damaged buildings and areas using remotely sensed images (satellite images) and also provides online updates of earthquakes and fires on the basis of the current scenario on the field.
 
+Segmentation of remotely sensed images lies at the intersection of the domains of remote sensing and computer vision. It is used to systematically extract information from data collected by various airborne and space-borne sensors, resulting in a simpler representation. This method is used in various applications which include change detection, land cover and land use classification, resource exploration, the study of natural hazards, and mapping. In this work, we will focus on the study of natural hazards, i.e., building a multi-class semantic segmentation model that categories the given post-disaster (earthquakes and forest fires in particular) imagery based on damage. 
 
-Segmentation of remotely sensed images lies at the intersection of the domains of remote sensing and computer vision. It is used to systematically extract information from data collected by various airborne and space-borne sensors, resulting in a simpler representation. This method is used in various applications which include change detection, land cover and land use classification, resource exploration, the study of natural hazards, and mapping. In this work, we will focus on the study of natural hazards, i.e., building a multi-class semantic segmentation model that categories the given post-disaster (earthquakes in particular) imagery based on damage. 
+Currently, the disaster assessment task is done on satellite images manually by humans or by inspecting the damaged site in person which is both slow, inefficient and dangerous. Our model is able to automate the process and helps the rescue workers provide timely assistance even in hard-to-reach areas.  
+During a disaster, rescue authorities would like to prioritise by going to severely affected areas, and our application through deep learning and the web user interface will provide the end-user with enough details and up to date updates to prioritise the areas requiring immediate attention by acquiring images from satellite or drones which are connected to the network. And also, in disasters, people trapped under buildings have very little time to survive and it is imperative to address them as soon as possible.
 
-The model is trained on the Xview2 building damage assessment dataset.
+The model was trained on the Xview2 building damage assessment dataset.
 
 # Network
 -------
@@ -80,14 +48,18 @@ For the given task we propose to go with the traditional U-Net architecture comp
 The MRA framework is interspersed into the U-Net Architecture in such a way that it pre-processes the inputs to the network at several stages to increase the contextual overview of the network as the same data on multiple scales is available for feature extraction and learning. 
 
 For Forest-Fire : 
-We used a traditional VGG Architecture organised in a U-Net style Encoder Decoder.
+We used a traditional VGG Architecture organized in a U-Net style Encoder Decoder.
 
 
-## Why MRA? 
+## Why MRANet? 
 -------
 
 The intuition behind using multi-resolution analysis is that images contain features at different scales important for segmentation, therefore, a multi-resolution analysis (MRA) approach is useful for their extraction since this decomposition allows us to even segment structures of various dimensions and structures with ease.
 
+## Why VGGNet? 
+-------
+
+The features for forest fire assessment are not complex so this model was enough for good output.
 
 ## Network Architecture
 -------
@@ -98,7 +70,7 @@ MRA Network :
 
 VGG Model :  
 <p align="center">
-  <img src="assets/vgg_image.png" width="750" height="500" title="network">
+  <img src="assets/vgg_image.png" width="750" height="400" title="network">
 </p>
 
 ## Loss Function
@@ -119,37 +91,30 @@ Please Download the Xview2 Earthquake disaster Dataset and save the Images and L
 ### Setup
 -------
 
-1. Install the [virtualenv tool](https://pypi.org/project/virtualenv-tools/)
-2. Create env
-   ```
-    python -m venv <env-name>
-   ```
-3. Activate env
-   ```sh
-   source <env-name>/bin/activate
-   ```
-4. ```sh
-   pip install -r requirements.txt
-   ```
-5. Loading data <br>( Download data.zip from the [here](https://drive.google.com/drive/u/1/folders/1rNZOSgXUMRIO5JUhLPWkwlid3cD-irot) and extract in home folder )
-6. Saved Models <br>
-   To test the model download saved_models.zip from [here](https://drive.google.com/drive/u/1/folders/1rNZOSgXUMRIO5JUhLPWkwlid3cD-irot) and extract in home folder
-7. Installing wavetf <br>
-    ```sh
-       cd wavetf
-       pip3 install .
-   ```
-<p align="right">(<a href="#top">back to top</a>)</p>
+```
+Will update soon
+```
 
 
 ## Run
 -------
 
 ```
-
+Will update soon
 ```
 
-## Results
+## Preview
+<p align="center">
+  <img src="assets/1.png" width="800" height="350" title="loss">
+</p>
+
+<p align="center">
+  <img src="assets/2.png" width="800" height="350" title="loss">
+</p>
+
+## Model Results
+
+### Earthquake damage assessment
 
 <p align="center">
   <img src="assets/results.png" width="800" height="350" title="loss">
@@ -160,6 +125,20 @@ meanDice:      92.55% <br>
 pixelAccuracy: 89.9% <br>
 Precision:     90.27% <br>
 Recall:        92.98% <br>
+
+
+### Forest Fire damage assessment
+
+<p align="center">
+  <img src="assets/5.png" width="400" height="400" title="VGGMOdel">
+</p>
+
+
+meanIOU:       93.34% <br>
+meanDice:      95.27% <br>
+pixel accuracy: 93.91% <br>
+Precision:     92.17% <br>
+Recall:        94.58% <br>
 
 
 <!-- LICENSE -->
