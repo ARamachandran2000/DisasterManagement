@@ -1,11 +1,12 @@
 from urllib import response
 from flask import Flask, json, jsonify, request
 from flask_cors import CORS
-from predict import pred
+
 import flask
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
+
+from predict import pred
 
 app = Flask(__name__)
 CORS(app)   
