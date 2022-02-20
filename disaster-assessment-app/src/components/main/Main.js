@@ -1,5 +1,5 @@
 import "./Main.css";
-import hello from "../../assets/loading_1.gif"
+import hello from "../../assets/loading_2.gif"
 import blue from "../../assets/blue.png"
 import red from "../../assets/red.png"
 import green from "../../assets/green.png"
