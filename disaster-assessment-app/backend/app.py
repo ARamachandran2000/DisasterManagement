@@ -6,7 +6,7 @@ import flask
 import numpy as np
 import cv2
 
-from predict import pred
+from predict_earthquake import pred
 
 app = Flask(__name__)
 CORS(app)   
