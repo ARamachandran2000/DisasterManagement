@@ -235,3 +235,26 @@
 .select-file{
     padding: 10px;
 }
+
+main{
+    background:white;
+    grid-area: main;
+    overflow-y:auto;
+    height:max-content;
+}
+
+.main__container{
+    padding:20px 55px;
+    flex-direction: row;
+}
+
+.main__title{
+    display:flex;
+    align-items:center;
+}
+
+.main__title > img{
+    max-height:100px;
+    object-fit:contain;
+    margin-right:20px;
+}

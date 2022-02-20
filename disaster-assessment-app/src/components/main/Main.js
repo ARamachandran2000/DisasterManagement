@@ -9,7 +9,8 @@ import { e_array } from "../sidebar/Sidebar";
 
 
 import Chart from "../charts/Chart";
-const Main=()=>{
+const Main=(props)=>{
+    console.log(props);
     return(
         <main>
             <div className="main__container">
@@ -24,19 +25,6 @@ const Main=()=>{
 
                 <div className="charts">
                    
-                    
-                    {/* <div className="charts__right">
-                        <div className="charts__right__title">
-                            <div>
-                                <h1>Original Image</h1>
-                            </div>
-                        </div>
-
-                        <div className="charts__right__cards">
-                        <img src={hello}></img>
-                        </div>
-                    </div> */}
-
                     <div className="charts__right">
                         <div className="charts__left__title">
                             <div>
@@ -44,7 +32,7 @@ const Main=()=>{
                             </div>
                         </div>
                         <div className="charts__right__cards">
-                        <img src={hello} style={{width:'480px', height:'320px', padding: '20px'}}></img>
+                        <img src={props.image==null?hello:props.image} style={{width:'480px', height:'320px', padding: '20px'}} id="img"></img>
                         </div>
                         
                         <div className="charts__right__colors">
@@ -62,7 +50,7 @@ const Main=()=>{
                         <i className="fa fa-users fa-2x text-lightblue"></i>
                         <div className="card_inner">
                             <p className="text-primary-p">Area Damage (%)</p>
-                            <span className="font-bold text-title">12%</span>
+                            <span className="font-bold text-title">{props.areaDamage} %</span>
                         </div>
                     </div>
                     <br/>
@@ -73,15 +61,8 @@ const Main=()=>{
                             <span className="font-bold text-title">3.3</span>
                         </div>
                     </div>
-                    
                 </div>
-
-
                 </div>
-
-           
-
-
             </div>
         </main>
     )

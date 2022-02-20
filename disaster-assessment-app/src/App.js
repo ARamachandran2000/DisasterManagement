@@ -7,6 +7,8 @@ import Main from "./components/main/Main";
 
 const Dashboard= () => {
   const [sidebarOpen,setSidebarOpen]=useState(false);
+  const [image,setImage]=useState(null);
+  const [areaDamage, setAreaDamage] = useState(null);
   const openSidebar = () => {
     setSidebarOpen(true);
   };
@@ -16,8 +18,8 @@ const Dashboard= () => {
   return (
     <div className="container">
      
-      <Main/>
-      <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar}/>
+      <Main image={image} areaDamage={areaDamage}/>
+      <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} name="H" changeImage={setImage} changeDamageVal = {setAreaDamage}/>
     </div>
   );
 }
