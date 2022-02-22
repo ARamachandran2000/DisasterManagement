@@ -8,7 +8,8 @@ class App extends Component {
 
     state = {
       selectedFile: null,
-      model: null
+      model: null,
+      demo: null
     };
     
     onFileChange = event => {
@@ -17,6 +18,11 @@ class App extends Component {
     
     onRadioChange = event => {
       this.setState({model: event.target.value})
+    }
+
+    onToggle = event => {
+      this.setState({demo: event.target.checked})
+      // console.log("isChecked: ", event.target.checked)
     }
 
     onFileUpload = () => {
@@ -30,6 +36,11 @@ class App extends Component {
       formData.append(
         "selectedModel",
         this.state.model
+      );
+
+      formData.append(
+        "demoMode",
+        this.state.demo
       );
 
       axios.post("http://localhost:5000/test", formData)
@@ -87,7 +98,23 @@ class App extends Component {
                     </label>
                 </div>
 
-                <div className="App" style={{paddingLeft: '20px', alignContent: "center", justifyContent: "center", display:"flex"}}>
+                <div class="toggle-switch-wrapper">
+                <div class="switch_box box_1">
+                  <label>
+                  <span style={{paddingRight:"30px", fontSize:'18px'}}>Demo Mode:</span>
+                  <input type="checkbox" class="switch_1" checked={this.state.demo === true} onChange={e => this.onToggle(e)} checked ></input>
+                  </label>
+                  
+                </div>
+                </div>
+
+                {/* <div class="button r" id="button-3">
+                  <input type="checkbox" class="checkbox" />
+                  <div class="knobs"></div>
+                  <div class="layer"></div>
+                </div> */}
+
+                <div className="App" style={{paddingLeft: '101px', alignContent: "center",  display:"flex", paddingTop: '20px'}}>
                       <button type="button" id = "assess" onClick={this.onFileUpload} style={{ backgroundColor:'lightblue', padding: '10px', borderRadius: '12px', cursor: 'pointer', fontWeight: 'bold', padding: '10px 15px', textAlign: 'center', transition: '100ms', maxWidth:'180px', boxSizing:'border-box', border: '0', fontSize:'16px', userSelect:'none', WebkitUserSelect:'none', touchAction:'manipulation',marginTop:'15px'}}> ASSESS </button>
                </div> 
           

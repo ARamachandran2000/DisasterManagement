@@ -24,14 +24,15 @@ def test_image():
     image = cv2.resize(image,(1024,1024))
     cv2.imwrite(f.filename, image)
 
-    
-    model = request.form['selectedModel']
+    demo = request.form['demoMode']
 
-    if model == 'fire':
-        # Call Fire detection model's predict!
-        pred_forest_fire(f.filename)
-    else:
-        pred_earthquake(f.filename)  #earthquake
+    if not demo:
+        model = request.form['selectedModel']
+        if model == 'fire':
+            # Call Fire detection model's predict!
+            pred_forest_fire(f.filename)
+        else:
+            pred_earthquake(f.filename)  #earthquake
 
     # % Damage Calculation
     filename = f.filename.split('/')[-1]
